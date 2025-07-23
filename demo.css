@@ -1,0 +1,531 @@
+< !DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>E-Rikshaw Booking | LPU EVS</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style> :root {
+    --primary: #4361ee;
+    --primary-dark: #3a56d4;
+    --accent: #4895ef;
+    --success: #4cc9f0;
+    --warning: #f72585;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+    --border-radius: 15px;
+    --card-bg: rgba(255, 255, 255, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+    background-size: cover;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    transition: var(--transition);
+    animation: fadeIn 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(30deg);
+    z-index: -1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 3rem;
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(67, 97, 238, 0.5);
+}
+
+h1 {
+    color: var(--white);
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--success), var(--accent));
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(76, 201, 240, 0.4);
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.feature {
+    padding: 20px 10px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    cursor: default;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature i {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, var(--success), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.feature:hover i {
+    transform: scale(1.1);
+}
+
+.feature p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 35px 0 25px;
+}
+
+.btn {
+    padding: 16px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.6s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    color: var(--white);
+}
+
+.btn-success {
+    background: linear-gradient(to right, var(--success), var(--accent));
+    color: var(--white);
+}
+
+#message {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    font-size: 0.95rem;
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+    border-left: 4px solid var(--success);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--success);
+    animation: pulse 1.5s infinite;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+footer p {
+    position: relative;
+    display: inline-block;
+}
+
+footer p::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.e-rikshaw {
+    position: fixed;
+    bottom: 20px;
+    right: -150px;
+    width: 180px;
+    height: auto;
+    animation: drive 15s linear infinite;
+    z-index: 0;
+    opacity: 0.9;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes drive {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(calc(-100vw - 180px)) rotate(0deg);
+    }
+}
+
+.floating-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.floating-icon {
+    position: absolute;
+    opacity: 0.1;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    .logo {
+        width: 90px;
+        height: 90px;
+        font-size: 2.8rem;
+    }
+
+    h1 {
+        font-size: 1.9rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .e-rikshaw {
+        width: 150px;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    .e-rikshaw {
+        display: none;
+    }
+}
+
+</style></head><body><div class="floating-icons"><i class="fas fa-map-marker-alt floating-icon" style="top: 10%; left: 15%; font-size: 24px; animation-duration: 20s;"></i><i class="fas fa-route floating-icon" style="top: 20%; left: 80%; font-size: 22px; animation-duration: 25s;"></i><i class="fas fa-bolt floating-icon" style="top: 70%; left: 30%; font-size: 20px; animation-duration: 18s;"></i><i class="fas fa-clock floating-icon" style="top: 60%; left: 70%; font-size: 26px; animation-duration: 22s;"></i></div><div class="container"><div class="logo-container"><div class="logo"><i class="fas fa-rickshaw"></i></div></div><h1>E-Rikshaw Booking</h1><p class="subtitle">Safe,
+affordable,
+and eco-friendly campus transportation</p><div class="features"><div class="feature"><i class="fas fa-bolt"></i><p>Instant Booking</p></div><div class="feature"><i class="fas fa-shield-alt"></i><p>Safe Rides</p></div><div class="feature"><i class="fas fa-rupee-sign"></i><p>Affordable</p></div></div><div class="btn-group"><button class="btn btn-success" id="onTimeBtn"><i class="fas fa-bolt"></i>On-Time Booking </button><button class="btn btn-primary" id="preBookingBtn"><i class="fas fa-calendar-check"></i>Pre-Booking </button></div><div id="message"></div><footer><p>© 2025 LPU EVS. All rights reserved.</p></footer></div><img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" class="e-rikshaw" alt="E-Rikshaw"><script>document.getElementById('onTimeBtn').addEventListener('click', function() {
+        const message=document.getElementById("message");
+        message.innerHTML=` <div style="display: flex; align-items: center; gap: 10px;" > <i class="fas fa-info-circle" style="font-size: 1.2rem;" ></i> <span>On-Time Booking feature will be available soon !</span> </div> <div class="status-indicator" > <div class="status-dot" ></div> <span>Currently under development</span> </div> `;
+        message.style.display="block";
+
+        // Hide message after 4 seconds
+        setTimeout(()=> {
+                message.style.display="none";
+            }
+
+            , 4000);
+    });
+
+document.getElementById('preBookingBtn').addEventListener('click', function() {
+        const btn=this;
+        const originalText=btn.innerHTML;
+        btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+        btn.style.opacity='0.9';
+        btn.style.pointerEvents='none';
+
+        // Simulate delay for better UX
+        setTimeout(()=> {
+                window.location.href='log.php';
+            }
+
+            , 1500);
+
+        // Reset button if navigation fails
+        setTimeout(()=> {
+                btn.innerHTML=originalText;
+                btn.style.opacity='1';
+                btn.style.pointerEvents='auto';
+            }
+
+            , 3000);
+    });
+
+// Create additional floating icons dynamically
+const floatingIconsContainer=document.querySelector('.floating-icons');
+const icons=['fa-map-marker-alt',
+'fa-route',
+'fa-bolt',
+'fa-clock',
+'fa-location-arrow',
+'fa-stopwatch'];
+
+for (let i=0; i < 8; i++) {
+    const icon=document.createElement('i');
+
+    icon.className=`fas $ {
+        icons[Math.floor(Math.random() * icons.length)]
+    }
+
+    floating-icon`;
+
+    icon.style.top=`$ {
+        Math.random() * 100
+    }
+
+    %`;
+
+    icon.style.left=`$ {
+        Math.random() * 100
+    }
+
+    %`;
+
+    icon.style.fontSize=`$ {
+        Math.floor(Math.random() * 10)+16
+    }
+
+    px`;
+
+    icon.style.animationDuration=`$ {
+        Math.floor(Math.random() * 15)+15
+    }
+
+    s`;
+
+    icon.style.animationDelay=`$ {
+        Math.random() * 5
+    }
+
+    s`;
+    floatingIconsContainer.appendChild(icon);
+}
+
+</script></body></html>
